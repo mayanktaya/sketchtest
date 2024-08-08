@@ -7,7 +7,7 @@ from voice_commands import recognize_command
 import subprocess
 
 app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = r'C:\Users\vybha\Desktop\TK\Capstone\PixieSketch\Local_Run\upload'
+app.config['UPLOAD_FOLDER'] = 'upload'
 app.config['ALLOWED_EXTENSIONS'] = {'png', 'jpg', 'jpeg', 'gif'}
 
 if not os.path.exists(app.config['UPLOAD_FOLDER']):
