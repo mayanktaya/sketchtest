@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Image</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            text-align: center;
+            padding: 50px;
+        }
+        h1, h2 {
+            color: #333;
+            font-size: 3em;
+        }
+        form {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: #fff;
+        }
+        input[type="submit"], button {
+            padding: 20px 40px;
+            background-color: #008cba;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 2em;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        input[type="submit"]:hover, button:hover {
+            background-color: #005f5f;
+        }
+        img {
+            margin-top: 20px;
+            max-width: 80%;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+        }
+        label {
+            display: block;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        select {
+            font-size: 2em;
+            padding: 10px;
+            margin: 10px 0 30px 0;
+        }
+        .intensity-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+            margin: 20px 0;
+        }
+        .intensity-container label {
+            margin: 0;
+        }
+        .intensity-container input[type="range"] {
+            margin-left: 20px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <h1>Edit Image</h1>
+    <form method="post">
+        <label for="sketch_options">Choose Sketch Style:</label>
+        <select name="sketch_options" id="sketch_options">
+            <option value="pencil">Pencil Sketch</option>
+            <option value="charcoal">Charcoal Sketch</option>
+            <option value="colored">Colored Sketch</option>
+        </select>
+        <div class="intensity-container">
+            <label for="intensity">Image Intensity:</label>
+            <input type="range" id="intensity" name="intensity" min="0.5" max="2" step="0.1" value="1">
+        </div>
+        <input type="submit" value="Convert to Sketch">
+    </form>
+    {% if sketch_data %}
+        <h2>Sketch Preview</h2>
+        <img src="data:image/png;base64,{{ sketch_data }}" alt="Sketch">
+        <form action="{{ url_for('export_to_paint', output_filename=output_filename) }}" method="post">
+            <button type="submit">Export to MS Paint</button>
+        </form>
+    {% endif %}
+</body>
+</html>
