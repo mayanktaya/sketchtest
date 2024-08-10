@@ -9,8 +9,8 @@ import subprocess
 app = Flask(__name__)
 
 # Azure Blob Storage configuration
-connect_str = "YOUR_AZURE_STORAGE_CONNECTION_STRING"
-container_name = "your-container-name"
+connect_str = "DefaultEndpointsProtocol=https;AccountName=pixiesketchstorage;AccountKey=/lLDsddncKbCWvhcXYfBW3VLkKll5Rx5ncfdgERHPaYQOydy4GAqMyyJx6zfv8LZU6LJcSOxhS5i+AStHDRGaw==;EndpointSuffix=core.windows.net"
+container_name = "uploadimages"
 blob_service_client = BlobServiceClient.from_connection_string(connect_str)
 container_client = blob_service_client.get_container_client(container_name)
 
