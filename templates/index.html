@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image to Pencil Sketch App</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            color: #333;
+            font-size: 3em;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 20px 40px;
+            background-color: #008cba;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 2em;
+        }
+        a:hover {
+            background-color: #005f5f;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Image to Pencil Sketch App</h1>
+    <a href="{{ url_for('upload_file') }}">Upload Image</a>
+</body>
+</html>
