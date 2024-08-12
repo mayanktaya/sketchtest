@@ -9,7 +9,7 @@ from io import BytesIO
 
 app = Flask(__name__)
 
-connect_str = os.getenv('AZURE_STORAGE_CONNECTION_STRING')
+connect_str = os.getenv('DefaultEndpointsProtocol=https;AccountName=pixieskecthstorage;AccountKey=I5Ko1TNxQHDU2mzuGo1v0qQNUCYZeRsNs8iCFmt5XuiSgRxsZyHymTgEgjlrcj5nmFE8gZTh3b1D+AStKq/9pQ==;EndpointSuffix=core.windows.net')
 container_name = 'photos'
 
 # Set your Azure Blob Storage connection string and container name
